@@ -39,9 +39,8 @@ public class StatService {
 
     public int lowerAvg(long[] sales) {
         int counter = 0;
-        long avg = sum(sales) / sales.length;
         for (long sale : sales) {
-            if (sale < avg) {
+            if (sale < average(sales)) {
                 counter = counter + 1;
             }
         }
