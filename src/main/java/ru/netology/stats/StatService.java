@@ -10,7 +10,11 @@ public class StatService {
     }
 
     public int average(long[] sales) {
-        return sum(sales) / sales.length;
+        int averageSum = 0;
+        for (long sale : sales) {
+            averageSum = sum(sales) / sales.length;
+        }
+        return averageSum;
     }
 
     public int minSales(long[] sales) {
@@ -38,22 +42,24 @@ public class StatService {
     }
 
     public int lowerAvg(long[] sales) {
-        int counter = 0;
+        int lowerAverage = 0;
+        float average = average(sales);
         for (long sale : sales) {
-            if (sale < average(sales)) {
-                counter = counter + 1;
+            if (sale < average) {
+                lowerAverage++;
             }
         }
-        return counter;
+        return lowerAverage;
     }
 
     public int upperAvg(long[] sales) {
-        int counter = 0;
+        int upperAverage = 0;
+        float average = average(sales);
         for (long sale : sales) {
-            if (sale > average(sales)) {
-                counter = counter + 1;
+            if (sale > average) {
+                upperAverage++;
             }
         }
-        return counter;
+        return upperAverage;
     }
 }
